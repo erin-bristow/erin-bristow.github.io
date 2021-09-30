@@ -18,7 +18,7 @@ This writeup covers solutions for Challenges 14 (31 solves), 15 (20 solves), and
 
 [Challenge Description]
 
-This challenge was amusing because the first address I discovered seemed so perfect that I attempted fruitlessly to enter it for at least ten minutes.
+This challenge was amusing because the first address I discovered seemed so perfect that I fruitlessly attempted to enter it for at least ten minutes.
 
 <img src="/assets/post1ctf/honeypot.PNG" alt="Sanjeev Shah Tolia incorrect address: Devonshire House 582 Honeypot Lane, Stanmore" height="300" />
 
