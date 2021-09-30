@@ -20,7 +20,7 @@ This writeup covers solutions for Challenges 14 (31 solves), 15 (20 solves), and
 
 This challenge was amusing because the first address I discovered seemed so perfect that I tried fruitlessly to enter it for at least ten minutes.
 
-<img src="/assets/post1ctf/honeypot.png" alt="Sanjeev Shah Tolia incorrect address: Devonshire House 582 Honeypot Lane, Stanmore" height="300" />
+<img src="/assets/post1ctf/honeypot.PNG" alt="Sanjeev Shah Tolia incorrect address: Devonshire House 582 Honeypot Lane, Stanmore" height="300" />
 
 Of course, seeing an address with a computer security term in it made me think I'd struck gold. But a [honeypot](https://en.wikipedia.org/wiki/Honeypot_(computing)) is a trap intended to lure and trick attackers - and in this case, I was the one being tricked! This was a clever and funny addition by the developers of this CTF.
 
