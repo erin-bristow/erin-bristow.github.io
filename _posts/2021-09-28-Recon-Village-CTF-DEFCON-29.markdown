@@ -22,7 +22,7 @@ This challenge was amusing because the first address I discovered seemed so perf
 
 <img src="/assets/post1ctf/honeypot.PNG" alt="Sanjeev Shah Tolia incorrect address: Devonshire House 582 Honeypot Lane, Stanmore"/>
 
-Of course, seeing an address with a computer security term in it made me think I'd struck gold. But a [honeypot](https://en.wikipedia.org/wiki/Honeypot_(computing)) is a trap intended to lure and trick attackers - and in this case, I was the one being tricked! This was a clever and funny addition by the developers of this CTF.
+582 **Honeypot** Lane! Of course, seeing an address with a computer security term in it made me think I'd struck gold. But a [honeypot](https://en.wikipedia.org/wiki/Honeypot_(computing)) is a trap intended to lure and trick attackers - and in this case, I was the one being tricked! This was a clever and funny addition by the developers of this CTF.
 
 After trying another Google search string or two, I found a plausible (albeit less interesting) address that was the correct answer.
 
