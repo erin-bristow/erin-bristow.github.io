@@ -26,7 +26,7 @@ Of course, seeing an address with a computer security term in it made me think I
 
 After trying another Google search string or two, I found a plausible (albeit less interesting) address that was the correct answer.
 
-<img src="/assets/post1ctf/7London.png" alt="The correct address - 7 London Road"/>
+<img src="/assets/post1ctf/7London.PNG" alt="The correct address - 7 London Road"/>
 
 
 flag:{7 London Road}
