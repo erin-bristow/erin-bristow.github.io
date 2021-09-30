@@ -54,6 +54,8 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+permalink: /blog/:title
+
 theme: texture
 remote_theme: samarsault/texture
 
