@@ -4,7 +4,7 @@ title:	"Recon Village CTF Writeup - DEFCON 29"
 date:	2021-09-28 23:22:01 -0700
 categories: OSINT CTF
 ---
-On August 6th and 7th, I had the pleasure of participating in a [Recon Village](https://www.reconvillage.org/index.html) Capture the Flag competition . It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually. 
+On August 6th and 7th, I had the pleasure of participating in a [Recon Village](https://www.reconvillage.org/index.html) Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually. 
 
 ![Team Trojan's score breakdown](/assets/post1ctf/8me.PNG)
 
@@ -24,7 +24,7 @@ This challenge was amusing because the first address I discovered seemed so perf
 
 582 **Honeypot** Lane! Of course, seeing an address with a computer security term in it made me think I'd struck gold. But a [honeypot](https://en.wikipedia.org/wiki/Honeypot_(computing)) is a trap intended to lure and trick attackers - and in this case, I was the one being tricked! This was a clever and funny addition by the developers of this CTF.
 
-After trying another Google search string or two, I found a plausible (albeit less interesting) address that was the correct answer.
+After trying another Google search string or two, I found a plausible (albeit less exciting) address that was the correct answer.
 
 <img src="/assets/post1ctf/7London.PNG" alt="The correct address - 7 London Road"/>
 
