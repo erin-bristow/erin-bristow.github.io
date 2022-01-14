@@ -1,10 +1,10 @@
 ---
 layout: post
-title:	"Recon Village CTF Writeup: DEFCON 29"
+title:	"Recon Village CTF Writeup"
 date:	2021-09-28 23:22:01 -0700
 categories: OSINT CTF
 ---
-On August 6th and 7th, I had the pleasure of participating in a [Recon Village](https://www.reconvillage.org/index.html) Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually. 
+On August 6th and 7th, I had the pleasure of participating in DEFCON 29's [Recon Village](https://www.reconvillage.org/index.html) Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually. 
 
 ![Team Trojan's score breakdown](/assets/post1ctf/8me.PNG)
 
@@ -92,7 +92,7 @@ Note: It might seem unrealistic for extra information to be hidden in a webpage.
 ## Challenge 17 (unsolved)
 *\~500 points, 0 solves*
 
-**Challenge Description**: Failed to archive this one as well, but I remember the description being unhelpful. I found the filepath clue below by enumerating every filepath on the site, not through any hint here.
+**Challenge Description**: The third and final part of the Eva Hesington-related problems (Challenges 15, 16, and 17). Failed to archive this one as well, but I remember the description being unhelpful. I found the filepath clue below by enumerating every filepath on the site, not through any hint here.
 
 Opening one of the website's images in a new tab and looking at its filepath gave a hint.
 
