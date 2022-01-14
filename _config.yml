@@ -59,6 +59,9 @@ permalink: /blog/:title
 theme: texture
 remote_theme: samarsault/texture
 
+# https://stackoverflow.com/questions/20422279/github-pages-are-not-updating
+timezone: America/Los_Angeles
+
 texture:
   title: Erin Bristow
   tagline: Computer Science Student.
