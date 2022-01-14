@@ -38,7 +38,7 @@ flag:{7 London Road}
 
 **Challenge Description**: We were provided with the below image named Recruited.png
 
-<img src="/assets/post1ctf/Recruited.png" alt="Picture of Eva Hesington's Company ID with a QR Code" height="300" />
+<img src="/assets/post1ctf/Recruited.png" alt="Picture of Eva Hesington's Company ID with a QR Code" height="300"/>
 
 Uploading the QR code to [webqr.com](https://webqr.com) displayed this electronic business card (vCard):
 
