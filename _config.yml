@@ -56,11 +56,11 @@ plugins:
 
 permalink: /blog/:title
 
+# holy moly I spent 1.5 hours trying to get the site to work and it was this line
+# don't uncommenttttt
 #theme: texture
-remote_theme: samarsault/texture
 
-# https://stackoverflow.com/questions/20422279/github-pages-are-not-updating
-#timezone: America/Los_Angeles
+remote_theme: samarsault/texture
 
 texture:
   title: Erin Bristow
@@ -69,4 +69,14 @@ texture:
 
   social_links:
     github: erin-bristow
+
+  showNav: true
+  navigation:
+    - title: Home
+      url: "/"
+  
+
+
+
+show_excerpts: true
 

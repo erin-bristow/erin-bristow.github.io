@@ -12,7 +12,7 @@ The challenges were difficult, with many still unsolved at the end of the two-da
 
 ![Top 10 teams score plot](/assets/post1ctf/Top10Teams.png)
 
-This informal write-up covers solutions for Challenge 14, Challenge 15, and Challenge 16. Though I did not solve Challenge 17, I made some progress and it was still unsolved by the end of the competition so I am including a few notes on it too.
+This informal writeup covers solutions for Challenge 14, Challenge 15, and Challenge 16. Though I did not solve Challenge 17, I made some progress and it was still unsolved by the end of the competition so I am including a few notes on it too.
 
 ## Challenge 14
 *200 points, 31 solves*
@@ -120,4 +120,4 @@ I also tried using the [Diff Checker website](https://www.diffchecker.com/) to e
 
 Note - I did score 827 points (200, 200, and 427), but I "bought" a hint using 50 points bringing my total down to 777 (and didn't even end up making any notable progress on that challenge, oh well)
 
-Thanks for checking out my write-up! And thanks to those at Recon Village who put together this CTF!
+Thanks for checking out my writeup! And thanks to those at Recon Village who put together this CTF!
