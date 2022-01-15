@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   {%- include head.html -%}
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<style>
+
+   header {
+    padding: 70px 0;
+   }
+
+
+
+</style>
 </head>
-<body>
-  <header style="padding: 70px 0;" class="texture-{{ site.texture.style }}">
+<body> 
+  <!-- header: 70px top, 0 left and right, 14.55px bottom. matches home screen while also
+  giving enough space at the top for the post's title + Home navbar -->
+  <header class="texture-{{ site.texture.style }}">
     <div class="container">
       {%- include nav.html -%}
     </div>
