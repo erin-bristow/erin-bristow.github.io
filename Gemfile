@@ -21,6 +21,10 @@ gem "github-pages", "~> 219", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  # added 
+  gem "texture"
+  gem "webrick"
+  gem "jekyll-target-blank" # open external site links in new tab, https://github.com/keithmifsud/jekyll-target-blank
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -33,9 +37,5 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-# added 
-gem "texture"
-gem "webrick"
-gem "jekyll-target-blank" # open external site links in new tab, https://github.com/keithmifsud/jekyll-target-blank
 
 
