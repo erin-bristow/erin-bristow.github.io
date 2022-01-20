@@ -6,6 +6,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 show_excerpts: true
 baseurl: ""
 url: "https://ebristow.com"
+include: [CNAME]
 
 permalink: /blog/:title
 
