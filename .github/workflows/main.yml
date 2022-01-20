@@ -1,27 +1,18 @@
-## https://blog.samplasion.js.org/build-jekyll-with-custom-plugins-on-github-pages/
-
 name: Jekyll Deploy
-on: 
+
+on:
   push:
     branches:
-      - master 
-                
-jobs:
+     - master
+
+jobs: 
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: GitHub Checkout
-        uses: actions/checkout@v1
-      - name: Bundler Cache
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles(‘**/Gemfile.lock’) }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+      - uses: actions/checkout@v1
       - name: Build & Deploy to GitHub Pages
-        uses: erin-bristow/erin-bristow.github.io@master
-        env:
+        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
           GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+        uses: erin-bristow/erin-bristow.github.io@master
