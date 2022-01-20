@@ -17,7 +17,8 @@ jobs:
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles(‘**/Gemfile.lock’) }}
-          restore-keys: ${{ runner.os }}-gems-
+          restore-keys: |
+            ${{ runner.os }}-gems-
       - name: Build & Deploy to GitHub Pages
         uses: joshlarsen/jekyll4-deploy-gh-pages@master
         env:
