@@ -18,7 +18,7 @@ remote_theme: samarsault/texture
 texture:
   title: Erin Bristow
   tagline: Computer Science Student.
-  style: [black]
+  style: black
 
   social_links:
     github: erin-bristow
