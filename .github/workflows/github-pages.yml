@@ -19,7 +19,3 @@ jobs:
         with:
           target_branch: 'gh-pages'
           token: ${{ secrets.GITHUB_TOKEN }}
-      # for a custom domain: need a CNAME record in the Source branch (gh-pages),
-      ## but gh-pages is rebuilt every time, so need to do this
-      - run: touch CNAME   
-      - run: echo 'ebristow.com' > CNAME
