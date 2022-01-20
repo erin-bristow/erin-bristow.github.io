@@ -1,0 +1,20 @@
+##https://jekyllrb.com/docs/continuous-integration/github-actions/
+
+name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # or main after October 2020
+      
+#   schedule: # build once a day at midnight, for example
+#       - cron: "0 0 * * *"
+
+jobs:
+  github-pages: # matches the YAML filename github-pages.yml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
