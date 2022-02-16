@@ -29,6 +29,7 @@ texture:
   navigation:
     - title: Home
       url: "/"
+  disqus_shortname: disqus_q8fCtO3cGc
   
 
 # Build settings
