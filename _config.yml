@@ -1,12 +1,17 @@
 title: Home
 #email: your-email@example.com
+
 description: >- # this means to ignore newlines until "baseurl:"
   Blog covering topics including cyber security education, open source intelligence
   techniques, and others within the realm of computer science.
+
 show_excerpts: true
 baseurl: ""
 url: "https://ebristow.com"
-include: [CNAME]
+include: 
+  - [CNAME]
+  - _includes
+  - assets
 
 permalink: /blog/:title
 
@@ -24,11 +29,13 @@ texture:
   social_links:
     github: erin-bristow
     linkedIn: in/erinbristow
+    wikipedia: E_Billie
 
   showNav: true
   navigation:
     - title: Home
       url: "/"
+
 
 # disqus_shortname: ebristow-com
   
