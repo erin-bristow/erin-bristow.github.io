@@ -8,10 +8,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 show_excerpts: true
 baseurl: ""
 url: "https://ebristow.com"
-include: 
-  - [CNAME]
-  - _includes
-  - assets
+include: [CNAME]
 
 permalink: /blog/:title
 
@@ -45,3 +42,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-target-blank
+
+include: 
+  - _includes
+  - assets
