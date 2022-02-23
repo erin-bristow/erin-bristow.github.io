@@ -3,6 +3,7 @@
 Personal blog/resume website using samarsault's texture theme for Jekyll.
 
 https://jekyllrb.com/docs/configuration/
+
 https://github.com/samarsault/texture
 
 ### Note on Custom Plugins 
