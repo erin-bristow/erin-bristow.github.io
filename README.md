@@ -3,6 +3,7 @@
 Personal blog/resume website using samarsault's texture theme for Jekyll.
 
 https://jekyllrb.com/docs/configuration/
+https://github.com/samarsault/texture
 
 ### Note on Custom Plugins 
 I wanted to use custom plugins (notably, [jekyll-target-blank](https://github.com/keithmifsud/jekyll-target-blank)), but GitHub Pages doesn't allow custom plugins by default, citing security concerns.
