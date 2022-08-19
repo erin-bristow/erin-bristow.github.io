@@ -90,11 +90,11 @@ A Google search for `"phonenumber" costa rica facebook` returns a [Facebook prof
 
 Searching through Phonenumber's friends leads to Dany, who works at Facebook.
 
-<img src="/assets/post3ctf/challenge4friendcensored.PNG" alt="Phonenumber's friends"/>
+<img src="/assets/post3ctf/challenge4friendcensored.png" alt="Phonenumber's friends"/>
 
 Going to Dany's profile shows their marriage date.
 
-<img src="/assets/post3ctf/challenge4friendmarriagecensored.PNG" alt="Dany's profile w/ marriage date"/>
+<img src="/assets/post3ctf/challenge4friendmarriagecensored.png" alt="Dany's profile w/ marriage date"/>
 
 `flag:{11/03/2007}`
 
@@ -166,7 +166,7 @@ Sure enough, performing a Google search for `london mini golf with volcano` retu
 
 There is a Google review left by Doug on July 16 featured on the Hounslow website.
 
-<p style="text-align:center;"><img src="/assets/post3ctf/challenge16dougcensored.PNG" alt="Screenshot of the Hounslow Golf Park website"/></p>
+<p style="text-align:center;"><img src="/assets/post3ctf/challenge16dougcensored.png" alt="Screenshot of the Hounslow Golf Park website"/></p>
 
 `flag:{16/07/2022}`
 
