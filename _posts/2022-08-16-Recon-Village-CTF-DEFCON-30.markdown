@@ -37,7 +37,7 @@ Last year's challenges were more difficult. Many went unsolved, and Team Trojan 
 
 The CTF began on Friday and we started on Saturday, so we had a bit of catching up to do (in the above graph, we're the purple line that started second-to-last)! 
 
-![Challenges we solved and the time when each challenge was solved](/assets/post3ctf/challengesSolved.PNG)
+![Challenges we solved and the time when each challenge was solved](/assets/post3ctf/challengesSolved.png)
 <p align="center"><em>Our solved challenges with timestamps</em></p>
 
 Notes:
