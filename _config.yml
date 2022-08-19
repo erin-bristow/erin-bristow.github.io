@@ -41,3 +41,9 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-target-blank
+  - jekyll-analytics
+
+jekyll_analytics:
+  Plausible:
+    domain: 'ebristow.com'   # The domain configured in plausible
+    source: 'https://plausible.io/js/plausible.js' # The source of the javascript
