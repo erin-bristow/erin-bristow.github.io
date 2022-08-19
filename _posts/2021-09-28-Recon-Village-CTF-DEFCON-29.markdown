@@ -1,6 +1,6 @@
 ---
 layout: post
-title:	"Recon Village CTF Writeup"
+title:	"DEFCON 29 - Recon Village CTF Writeup"
 date:	2021-09-28 23:22:01 -0700
 categories: OSINT CTF
 ---
