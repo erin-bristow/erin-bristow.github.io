@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/hendrikschneider/jekyll-analytics
+  revision: 40e09570dea80e3a9ecb0ad796aad1c434ff067c
+  ref: 40e09570dea80e3a9ecb0ad796aad1c434ff067c
+  specs:
+    jekyll-analytics (0.1.12)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -121,7 +128,6 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-analytics (0.1.14)
     jekyll-avatar (0.7.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-coffeescript (1.1.1)
@@ -287,7 +293,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (~> 219)
-  jekyll-analytics
+  jekyll-analytics (~> 0.1)!
   jekyll-feed (~> 0.12)
   jekyll-target-blank
   minima (~> 2.5)

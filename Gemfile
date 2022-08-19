@@ -25,7 +25,7 @@ group :jekyll_plugins do
   gem "texture"
   gem "webrick"
   gem "jekyll-target-blank" # open external site links in new tab, https://github.com/keithmifsud/jekyll-target-blank
-  gem "jekyll-analytics" # https://github.com/hendrikschneider/jekyll-analytics
+  gem "jekyll-analytics", "~> 0.1", git: 'https://github.com/hendrikschneider/jekyll-analytics', ref: '40e09570dea80e3a9ecb0ad796aad1c434ff067c' # https://github.com/hendrikschneider/jekyll-analytics
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
