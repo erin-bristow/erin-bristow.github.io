@@ -1,10 +1,10 @@
 ---
 layout: post
-title:	"DEFCON 29 - Recon Village CTF Writeup"
+title:	"DEF CON 29 - Recon Village CTF Writeup"
 date:	2021-09-28 23:22:01 -0700
 categories: OSINT CTF
 ---
-On August 6th and 7th, I had the pleasure of participating in DEFCON 29's [Recon Village](https://www.reconvillage.org/index.html) Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually. 
+On August 6th and 7th, I had the pleasure of participating in DEF CON 29's [Recon Village](https://www.reconvillage.org/index.html) Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually. 
 
 ![Team Trojan's score breakdown](/assets/post1ctf/8me.PNG)
 

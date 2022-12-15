@@ -1,13 +1,13 @@
 ---
 layout: post
-title:	"DEFCON 30 - Recon Village CTF Writeup"
+title:	"DEF CON 30 - Recon Village CTF Writeup"
 date:	2022-08-18 12:00:00 -0700
 categories: OSINT CTF
 ---
-After spending Friday of our first (!!) in-person DEFCON wandering around, on Saturday my friend [Jeffrey](https://github.com/j-hertzog) and I decided to plop down in the [Recon Village](https://www.reconvillage.org/index.html) and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams.
+After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend [Jeffrey](https://github.com/j-hertzog) and I decided to settle down in the [Recon Village](https://www.reconvillage.org/index.html) and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams.
 
 # Table of Contents
-1. [DEFCON!](#defcon)
+1. [DEF CON!](#defcon)
 2. [Writeup Intro](#writeup-intro)
 3. [Challenges](#challenges)
 	- [Challenge 2 - Tax Fraud LTD.](#challenge2)
@@ -22,9 +22,26 @@ After spending Friday of our first (!!) in-person DEFCON wandering around, on Sa
 4. [Conclusion](#conclusion)
 
 
-## DEFCON! <a name="defcon"></a>
+## DEF CON! <a name="defcon"></a>
+Feel free to skip straight to the [writeup intro](#writeup-intro), but I wanted to write a little about my experience at the conference too. 
+At long last, an in-person DEF CON that I could attend! Had the best time with old friends and new friends. :)
 
-DEFCON was very very cool! todo
+I went with two friends from USC and we stayed at Tuscany Suites & Casino about a ten minute walk from the conference. 
+
+<p style="text-align: center;" align="center"><img src="/assets/post3ctf/friends.jpg" alt=""/></p>
+<p align="center"><em>Jeffrey, Diba, and me - very tired on the last day of the conference :,)</em></p>
+
+Hacker jeopardy was definitely one of the highlights of the conference. Never in my life have I seen more [beach balls](https://twitter.com/c4i/status/1559633675117121537?s=20&t=u4MGGZqo4CPtuGwxTGIuXA). At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart... because in addition to points for answering questions correctly, you also get points for each bottle of beer you drink??
+
+<p style="text-align:center;" align="center"><img src="/assets/post3ctf/hacker-jeopardy.gif" alt="a beach ball flies by a screen that says 'The people responsible have been sacked. Everyone please... SIT THE FUCK DOWN!'"/></p>
+<p align="center"><em>Waiting for the beer people!</em></p>
+
+Some of the categories included: <em>Are you smarter than a CSSLP?</em>, <em>pandemodem</em>, <em>little green padlocks</em>, and <em>NFT: No Fucking Thanks</em>. Many questions involved pieces of [hacker culture](https://en.wikipedia.org/wiki/Hacker_culture) and DEF CON history while others asked networking questions like which service uses which port ([TELNET](https://twitter.com/HackerJeopardy/status/1563780446445621248), anyone?). 
+
+Other highlights:
+- Met some awesome hackers at the Double Down Saloon on the last night of the conference
+- Was offered to join the Church of WiFi but the [initiation process](https://twitter.com/cydefe/status/1528586303264149505?s=20&t=cycMCUmuOJ9jbqONpHnDxA) seemed a little intimidating... maybe next year hehe
+- the Recon Village CTF!!
 
 ## Writeup Intro <a name="writeup-intro"></a>
 
