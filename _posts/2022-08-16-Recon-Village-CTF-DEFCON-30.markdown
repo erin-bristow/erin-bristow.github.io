@@ -26,12 +26,19 @@ After spending Friday of our first (!!) in-person DEF CON wandering around, on S
 Feel free to skip straight to the [writeup intro](#writeup-intro), but I wanted to write a little about my experience at the conference too. 
 At long last, an in-person DEF CON that I could attend! Had the best time with old friends and new friends. :)
 
-I went with two friends from USC and we stayed at Tuscany Suites & Casino about a ten minute walk from the conference. 
+I went with two friends from USC and we stayed at Tuscany Suites & Casino, about a ten minute walk from the conference. 
 
-<p style="text-align: center;" align="center"><img src="/assets/post3ctf/friends.jpg" alt=""/></p>
+<p style="text-align: center;" align="center"><img src="/assets/post3ctf/friends.jpg" alt="Jeffrey, Diba, and me"/></p>
 <p align="center"><em>Jeffrey, Diba, and me - very tired on the last day of the conference :,)</em></p>
 
-Hacker jeopardy was definitely one of the highlights of the conference. Never in my life have I seen more [beach balls](https://twitter.com/c4i/status/1559633675117121537?s=20&t=u4MGGZqo4CPtuGwxTGIuXA). At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart... because in addition to points for answering questions correctly, you also get points for each bottle of beer you drink??
+We left the hotel at 7am on Thursday so we could buy our badge, and after foolishly following a group of equally-confused folks, found our way to Caesars Palace... which is apparently different than Caesars Forum! At around 8am we finally found the line and got our tickets in an hour and a half and then spent three hours in line to buy t-shirts. 
+
+LINECON was a great experience, though. The conference goons frequently told all first timers to raise their hands, so lots of people talked to us and gave us free stuff and advice. There were several games going in line, too. Pass the baby was a particularly goofy one in which two pairs of chopsticks were used to transfer a plastic baby from one person to another without dropping it.
+
+<p style="text-align: center;" align="center"><img src="/assets/post3ctf/pass-the-baby_5.jpg" alt="Plastic baby between chopsticks"/></p>
+<p align="center"><em>Pass the baby!</em></p>
+
+Hacker jeopardy on Friday night was one of the highlights of the conference. Never in my life have I seen more [beach balls](https://twitter.com/c4i/status/1559633675117121537?s=20&t=u4MGGZqo4CPtuGwxTGIuXA). At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart... because in addition to points for answering questions correctly, your team also gets points for each bottle of beer you drink??
 
 <p style="text-align:center;" align="center"><img src="/assets/post3ctf/hacker-jeopardy.gif" alt="a beach ball flies by a screen that says 'The people responsible have been sacked. Everyone please... SIT THE FUCK DOWN!'"/></p>
 <p align="center"><em>Waiting for the beer people!</em></p>
@@ -39,8 +46,11 @@ Hacker jeopardy was definitely one of the highlights of the conference. Never in
 Some of the categories included: <em>Are you smarter than a CSSLP?</em>, <em>pandemodem</em>, <em>little green padlocks</em>, and <em>NFT: No Fucking Thanks</em>. Many questions involved pieces of [hacker culture](https://en.wikipedia.org/wiki/Hacker_culture) and DEF CON history while others asked networking questions like which service uses which port ([TELNET](https://twitter.com/HackerJeopardy/status/1563780446445621248), anyone?). 
 
 Other highlights:
-- Met some awesome hackers at the Double Down Saloon on the last night of the conference
+- [Calling YИИEႱ](https://github.com/Kybr-git/DC30-Badge-Challenge-Writeup) as part of the badge challenge
+- Meeting some awesome hackers at the Double Down Saloon on the last night of the conference
+- w00w00's rooftop party!
 - Was offered to join the Church of WiFi but the [initiation process](https://twitter.com/cydefe/status/1528586303264149505?s=20&t=cycMCUmuOJ9jbqONpHnDxA) seemed a little intimidating... maybe next year hehe
+- googly eyes... [everywhere](https://twitter.com/DFIRmadness/status/1424215666580623362?s=20&t=caSwgp9k-ltloI1FCktSNg)...
 - the Recon Village CTF!!
 
 ## Writeup Intro <a name="writeup-intro"></a>
