@@ -35,10 +35,10 @@ We left the hotel at 7am on Thursday so we could buy our badge, and after foolis
 
 LINECON was a great experience, though. The conference goons frequently told all first timers to raise their hands, so lots of people talked to us and gave us free stuff and advice. There were several games going in line, too. Pass the baby was a particularly goofy one in which two pairs of chopsticks were used to transfer a plastic baby from one person to another without dropping it.
 
-<p style="text-align: center;" align="center"><img src="/assets/post3ctf/pass-the-baby_5.jpg" alt="Plastic baby between chopsticks"/></p>
+<p style="text-align: center;" align="center"><img src="/assets/post3ctf/pass-the-baby.jpg" alt="Plastic baby between chopsticks"/></p>
 <p align="center"><em>Pass the baby!</em></p>
 
-Hacker jeopardy on Friday night was one of the highlights of the conference. Never in my life have I seen more [beach balls](https://twitter.com/c4i/status/1559633675117121537?s=20&t=u4MGGZqo4CPtuGwxTGIuXA). At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart... because in addition to points for answering questions correctly, your team also gets points for each bottle of beer you drink??
+Hacker jeopardy on Friday night was one of the highlights of the conference. Never in my life have I seen more [beach balls](https://twitter.com/c4i/status/1559633675117121537). At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart... because in addition to points for answering questions correctly, your team also gets points for each bottle of beer you drink??
 
 <p style="text-align:center;" align="center"><img src="/assets/post3ctf/hacker-jeopardy.gif" alt="a beach ball flies by a screen that says 'The people responsible have been sacked. Everyone please... SIT THE FUCK DOWN!'"/></p>
 <p align="center"><em>Waiting for the beer people!</em></p>
@@ -49,8 +49,8 @@ Other highlights:
 - [Calling YИИEႱ](https://github.com/Kybr-git/DC30-Badge-Challenge-Writeup) as part of the badge challenge
 - Meeting some awesome hackers at the Double Down Saloon on the last night of the conference
 - w00w00's rooftop party!
-- Was offered to join the Church of WiFi but the [initiation process](https://twitter.com/cydefe/status/1528586303264149505?s=20&t=cycMCUmuOJ9jbqONpHnDxA) seemed a little intimidating... maybe next year hehe
-- googly eyes... [everywhere](https://twitter.com/DFIRmadness/status/1424215666580623362?s=20&t=caSwgp9k-ltloI1FCktSNg)...
+- Was offered to join the Church of WiFi but the [initiation process](https://twitter.com/cydefe/status/1528586303264149505) seemed a little intimidating... maybe next year hehe
+- googly eyes... [everywhere](https://twitter.com/DFIRmadness/status/1424215666580623362)...
 - the Recon Village CTF!!
 
 ## Writeup Intro <a name="writeup-intro"></a>
