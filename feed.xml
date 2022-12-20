@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ebristow.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ebristow.com/" rel="alternate" type="text/html" /><updated>2022-12-20T08:27:31+00:00</updated><id>https://ebristow.com/feed.xml</id><title type="html">Home</title><subtitle>Blog covering topics including cyber security education, open source intelligence techniques, and others within the realm of computer science.</subtitle><entry><title type="html">DEF CON 30 - Recon Village CTF Writeup</title><link href="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30" rel="alternate" type="text/html" title="DEF CON 30 - Recon Village CTF Writeup" /><published>2022-08-18T19:00:00+00:00</published><updated>2022-08-18T19:00:00+00:00</updated><id>https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30</id><content type="html" xml:base="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30">&lt;p&gt;After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend &lt;a href=&quot;https://github.com/j-hertzog&quot;&gt;Jeffrey&lt;/a&gt; and I decided to settle down in the &lt;a href=&quot;https://www.reconvillage.org/index.html&quot;&gt;Recon Village&lt;/a&gt; and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams.&lt;/p&gt;
+
+&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#defcon&quot;&gt;DEF CON!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#writeup-intro&quot;&gt;Writeup Intro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#challenges&quot;&gt;Challenges&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge2&quot;&gt;Challenge 2 - Tax Fraud LTD.&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge3&quot;&gt;Challenge 3 - Email spam!&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge4&quot;&gt;Challenge 4 - A person named Phonenumber&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge5&quot;&gt;Challenge 5 - Pool Party, Pt. 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge6&quot;&gt;Challenge 6 - Pool Party, Pt. 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge7&quot;&gt;Challenge 7 - Callum, Pt. 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge8&quot;&gt;Challenge 8 - Callum, Pt. 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge11&quot;&gt;Challenge 11 - Eva Hesington&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#challenge16&quot;&gt;Challenge 16 - Find the volcano!&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;def-con-&quot;&gt;DEF CON! &lt;a name=&quot;defcon&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Feel free to skip straight to the &lt;a href=&quot;#writeup-intro&quot;&gt;writeup intro&lt;/a&gt;, but I wanted to write a little about my experience at the conference too. 
+At long last, an in-person DEF CON that I could attend! Had the best time with old friends and new friends. :)&lt;/p&gt;
+
+&lt;p&gt;I went with two friends from USC and we stayed at Tuscany Suites &amp;amp; Casino, about a ten minute walk from the conference.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot; align=&quot;center&quot;&gt;&lt;img src=&quot;/assets/post3ctf/friends.jpg&quot; alt=&quot;Jeffrey, Diba, and me&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;Jeffrey, Diba, and me - very tired on the last day of the conference :,)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We left the hotel at 7am on Thursday so we could buy our badge, and after foolishly following a group of equally-confused folks, found our way to Caesars Palace… which is apparently different than Caesars Forum! At around 8am we finally found the line and got our tickets in an hour and a half and then spent three hours in line to buy t-shirts.&lt;/p&gt;
+
+&lt;p&gt;LINECON was a great experience, though. The conference goons frequently told all first timers to raise their hands, so lots of people talked to us and gave us free stuff and advice. There were several games going in line, too. Pass the baby was a particularly goofy one in which two pairs of chopsticks were used to transfer a plastic baby from one person to another without dropping it.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot; align=&quot;center&quot;&gt;&lt;img src=&quot;/assets/post3ctf/pass-the-baby.jpg&quot; alt=&quot;Plastic baby between chopsticks&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;Pass the baby!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Hacker jeopardy on Friday night was one of the highlights of the conference. Never in my life have I seen more &lt;a href=&quot;https://twitter.com/c4i/status/1559633675117121537&quot;&gt;beach balls&lt;/a&gt;. At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart… because in addition to points for answering questions correctly, your team also gets points for each bottle of beer you drink??&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;&quot; align=&quot;center&quot;&gt;&lt;img src=&quot;/assets/post3ctf/hacker-jeopardy.gif&quot; alt=&quot;a beach ball flies by a screen that says 'The people responsible have been sacked. Everyone please... SIT THE FUCK DOWN!'&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;Waiting for the beer people!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Some of the categories included: &lt;em&gt;Are you smarter than a CSSLP?&lt;/em&gt;, &lt;em&gt;pandemodem&lt;/em&gt;, &lt;em&gt;little green padlocks&lt;/em&gt;, and &lt;em&gt;NFT: No Fucking Thanks&lt;/em&gt;. Many questions involved pieces of &lt;a href=&quot;https://en.wikipedia.org/wiki/Hacker_culture&quot;&gt;hacker culture&lt;/a&gt; and DEF CON history while others asked networking questions like which service uses which port (&lt;a href=&quot;https://twitter.com/HackerJeopardy/status/1563780446445621248&quot;&gt;TELNET&lt;/a&gt;, anyone?).&lt;/p&gt;
+
+&lt;p&gt;Other highlights:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Kybr-git/DC30-Badge-Challenge-Writeup&quot;&gt;Calling YИИEႱ&lt;/a&gt; as part of the badge challenge&lt;/li&gt;
+  &lt;li&gt;Meeting some awesome hackers at the Double Down Saloon on the last night of the conference&lt;/li&gt;
+  &lt;li&gt;w00w00’s rooftop party!&lt;/li&gt;
+  &lt;li&gt;Was offered to join the Church of WiFi but the &lt;a href=&quot;https://twitter.com/cydefe/status/1528586303264149505&quot;&gt;initiation process&lt;/a&gt; seemed a little intimidating… maybe next year hehe&lt;/li&gt;
+  &lt;li&gt;googly eyes… &lt;a href=&quot;https://twitter.com/DFIRmadness/status/1424215666580623362&quot;&gt;everywhere&lt;/a&gt;…&lt;/li&gt;
+  &lt;li&gt;the Recon Village CTF!!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;writeup-intro-&quot;&gt;Writeup Intro &lt;a name=&quot;writeup-intro&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Last year’s challenges were more difficult. Many went unsolved, and Team Trojan secured 8th place with only three solves. This year, we solved nine challenges and tied for 4th! We had a great time competing, so a big thanks to the organizers of the CTF.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/top5.PNG&quot; alt=&quot;Scoreboard&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;Graph showing the progress of the Top 10 Teams&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The CTF began on Friday and we started on Saturday so we had a bit of catching up to do (in the above graph, we’re the purple line that started second-to-last!).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challengesSolved.png&quot; alt=&quot;Challenges we solved and the time when each challenge was solved&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;Our solved challenges with timestamps&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;This CTF included profiles and online information for real people. Therefore, some information has been redacted in this writeup.&lt;/li&gt;
+  &lt;li&gt;The number of solves for each challenge is the number when we first solved that challenge. We did start late, so there weren’t too many solves after us.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;challenges-&quot;&gt;Challenges &lt;a name=&quot;challenges&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;challenge-2---tax-fraud-ltd-&quot;&gt;Challenge 2 - Tax Fraud LTD. &lt;a name=&quot;challenge2&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;100 points, ~45 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Cherry Software LTD is associated by address with a questionable business registered on August 4th. On what date did the company’s only director resign? [This is paraphrased - lost the exact description]&lt;/p&gt;
+
+&lt;p&gt;A Google search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cherry software ltd&lt;/code&gt; returns a profile on the &lt;a href=&quot;https://find-and-update.company-information.service.gov.uk/&quot;&gt;UK’s Companies House website&lt;/a&gt; with a registered office address of 4 St. Johns Crescent, Bishop Monkton, Harrogate, North Yorkshire, HG3 3QZ.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge2cherry.PNG&quot; alt=&quot;Cherry Software Limited, 4 St. Johns Crescent, Bishop Monkton, Harrogate, North Yorkshire, HG3 3QZ&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We were very stuck on the “associated by address” hint in the challenge description, assuming that meant the questionable business had the same or similar address as Cherry Software LTD.&lt;/p&gt;
+
+&lt;p&gt;By searching for other companies in Harrogate, we found the company, Tax Fraud LTD:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge2sketchy.PNG&quot; alt=&quot;Tax Fraud LTD result on Companies House website&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The company’s only director resigned on 11 August 2022.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge2director.PNG&quot; alt=&quot;Director Dylan Sawyer resigned on 11 August 2022&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{11/08/2022}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-3---email-spam-&quot;&gt;Challenge 3 - Email spam! &lt;a name=&quot;challenge3&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;100 points, &amp;gt;=27 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: On 11 August, what was the primary email domain from which spam was reported as coming from 185.129.62.62 and 107.189.28.253 (two bot IPs)?&lt;/p&gt;
+
+&lt;p&gt;Searching &lt;a href=&quot;https://www.stopforumspam.com/&quot;&gt;stopforumspam.com&lt;/a&gt; for the IP address 185.129.62.62 returned several spam reports on August 11 for emails under a certain domain.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge3stopforumspam.PNG&quot; alt=&quot;Site results for the search for the IP 185.129.62.62.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{hiroyuki4010.yoshito33.inwebmail.fun}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-4---a-person-named-phonenumber-&quot;&gt;Challenge 4 - A person named Phonenumber &lt;a name=&quot;challenge4&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;100 points, &amp;gt;=35 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Wanting to remain anonymous online, discreetly named ‘Phonenumber’ from Costa Rica has a friend who works for Facebook. When did his friend get married? (MM/DD/YYYY)&lt;/p&gt;
+
+&lt;p&gt;A Google search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;phonenumber&quot; costa rica facebook&lt;/code&gt; returns a &lt;a href=&quot;https://www.facebook.com/phonenumber.phonenumber.39&quot;&gt;Facebook profile&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge4facebookprofile.PNG&quot; alt=&quot;Phonenumber's Facebook profile&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Searching through Phonenumber’s friends leads to Dany, who works at Facebook.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge4friendcensored.png&quot; alt=&quot;Phonenumber's friends&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Going to Dany’s profile shows their marriage date.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge4friendmarriagecensored.png&quot; alt=&quot;Dany's profile w/ marriage date&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{11/03/2007}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-5---pool-party-pt-1-&quot;&gt;Challenge 5 - Pool Party, Pt. 1 &lt;a name=&quot;challenge5&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;200 points, &amp;gt;=26 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: You’re investigating a missing person who went missing following a party in 2019. While working through case notes you’ve come across the following: NTIyMyBTb3V0aCBCcmFlc3dvb2QgQm91bGV2YXJkLCBIb3VzdG9u.&lt;br /&gt;
+What date was the pool party?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.base64decode.org/&quot;&gt;Decoding&lt;/a&gt; the base64 encoded string gives an address in Houston.&lt;/p&gt;
+
+&lt;p&gt;A Google search for that address points to a pastebin dump at &lt;a href=&quot;https://pastebin.com/BNwRBAX4&quot;&gt;https://pastebin.com/BNwRBAX4&lt;/a&gt; containing an email about a party.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge5pastebin.PNG&quot; alt=&quot;Thank you for your RSVP to our mf pool party THIS Saturday.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The email headers in the pastebin dump show that it was sent on 18 April 2019, so the email’s reference to “THIS Saturday” would be 20 April 2019.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{04/20/2019}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-6---pool-party-pt-2-&quot;&gt;Challenge 6 - Pool Party, Pt. 2 &lt;a name=&quot;challenge6&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;200 points, &amp;gt;=10 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: There are two hosts of the party, one is Vanessa, what is the last one of the other host?&lt;/p&gt;
+
+&lt;p&gt;The email says that anyone “on Meghana’s or Vanessa’s invite list can come in for free.” From this, we assumed that Meghana was the other host.&lt;/p&gt;
+
+&lt;p&gt;The pastebin dump included the entire email including headers and the “from” field, so we had about 80 full names and email addresses. Searching Facebook for a few of these names returned one that was friends with Meghana.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge6profilefriendcensored.png&quot; alt=&quot;a Facebook profile, with faces/names pixelated&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge6profilecensored.png&quot; alt=&quot;a Facebook profile, with faces/names pixelated&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{lastname}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-7---callum-pt-1-&quot;&gt;Challenge 7 - Callum, Pt. 1 &lt;a name=&quot;challenge7&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;100 points, &amp;gt;=14 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Callum lives in Scarborough, Toronto and works with kids. What’s his wife’s maiden name?&lt;/p&gt;
+
+&lt;p&gt;Googling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;callum scarborough toronto&lt;/code&gt; led us to a LinkedIn profile of someone named Callum that got a diploma in childcare.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge7linkedincensored.png&quot; alt=&quot;Callum's LinkedIn profile&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Searching Facebook for his full name returned a profile with a “Married to” section linked to another Facebook profile (unfortunately with the same last name).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge7facebookhusbandcensored.png&quot; alt=&quot;Callum's Facebook profile&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But when Ashley first created a Facebook account, it was likely under her maiden name. As a result, that original name was visible in the URL.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge7facebookurlcensored.png&quot; alt=&quot;Ashley's Facebook profile&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{lastname}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-8---callum-pt-2-&quot;&gt;Challenge 8 - Callum, Pt. 2 &lt;a name=&quot;challenge8&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;100 points, &amp;gt;=10 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Callum’s password has been breached in connection with his primary email. What is it?&lt;/p&gt;
+
+&lt;p&gt;A Google search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site:pastebin.com callum lastname&lt;/code&gt; returns a dump containing an email password combo that belongs to Callum.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{password}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-11---eva-hesington-&quot;&gt;Challenge 11 - Eva Hesington &lt;a name=&quot;challenge11&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;200 points, &amp;gt;=15 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Hi I’m Eva Hesington. Remember me from last year. I am the founder of Cryptorama. Thanks for your support we have been able to scale the business a lot. I cannot thank the open source community enough. Using Open source tools and platforms, our business has grown and our tech department is now running strong. We could not have done it without these Open Source tools and community. You can visit our website to find out more.&lt;/p&gt;
+
+&lt;p&gt;I do indeed remember Eva from &lt;a href=&quot;https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29&quot;&gt;last year’s CTF&lt;/a&gt;! Eva appears to be a fictional person created for this CTF, so full detailed are being included for this challenge.&lt;/p&gt;
+
+&lt;p&gt;With Firefox Developer tools, we found &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dist/js/main.min.js&lt;/code&gt; which had a comment reminding someone to remove a token before the code was pushed to production.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge11javascript.PNG&quot; alt=&quot;JavaScript with commented token&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{d0_N0t_cOd3_&amp;amp;_c0mM3nt}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;challenge-16---find-the-volcano-&quot;&gt;Challenge 16 - Find the volcano! &lt;a name=&quot;challenge16&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;400 points, &amp;gt;=17 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Can you locate this field on the outskirts of London in the image attached below. Once you do, what date did Doug leave a review for this place? Copy the date from the review as is in the flag format.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/c16_final.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;Attached image with filename 'c16_final.jpg'&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There were too many driving ranges in and around London to bother manually searching, so we identified a feature in the picture that stood out.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/post3ctf/challenge16volcano.jpg&quot; alt=&quot;Mini golf course with volcano&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A mini golf course with… perhaps a volcano?&lt;/p&gt;
+
+&lt;p&gt;Sure enough, performing a Google search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;london mini golf with volcano&lt;/code&gt; returned &lt;a href=&quot;https://hounslowgolfpark.com/&quot;&gt;this website&lt;/a&gt; for the Hounslow Golf Park. Notably, the “park” logo poster on the driving range matches the logo on the website.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post3ctf/challenge16website.PNG&quot; alt=&quot;Screenshot of the Hounslow Golf Park website&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a Google review left by Doug on July 16 featured on the Hounslow website.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/post3ctf/challenge16dougcensored.png&quot; alt=&quot;Screenshot of the Hounslow Golf Park website&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag:{16/07/2022}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion-&quot;&gt;Conclusion &lt;a name=&quot;conclusion&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Thanks for checking out the writeup, and thanks to those at Recon Village who put together this CTF.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://andrew.cloud/blog/dc30-writeup/&quot;&gt;Here’s the writeup&lt;/a&gt; from the winning team if you’d like to look at additional solves!&lt;/p&gt;</content><author><name></name></author><category term="OSINT" /><category term="CTF" /><summary type="html">After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend Jeffrey and I decided to settle down in the Recon Village and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams.</summary></entry><entry><title type="html">Creating Your Jekyll Site and Using Custom Plugins on GitHub Pages</title><link href="https://ebristow.com/blog/Troubleshooting-Jekyll-Custom-Plugins-on-GitHub-Pages" rel="alternate" type="text/html" title="Creating Your Jekyll Site and Using Custom Plugins on GitHub Pages" /><published>2022-06-01T00:00:00+00:00</published><updated>2022-06-01T00:00:00+00:00</updated><id>https://ebristow.com/blog/Troubleshooting-Jekyll-Custom-Plugins-on-GitHub-Pages</id><content type="html" xml:base="https://ebristow.com/blog/Troubleshooting-Jekyll-Custom-Plugins-on-GitHub-Pages">&lt;p&gt;This writeup will cover setting up a Jekyll site in GitHub Pages and then (optional!) deploying it with GitHub Actions so you can use custom plugins.&lt;/p&gt;
+
+&lt;p&gt;My personal blog website was built using &lt;a href=&quot;https://github.com/samarsault/texture&quot;&gt;samarsault’s texture theme&lt;/a&gt; for &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. I chose Jekyll because there were many free, minimalist themes that I liked. I also thought that the free GitHub Pages hosting would be easier than dealing with a cPanel backend, but I was most definitely wrong about that - continue reading for a hands-on, involved method of creating a site for your blog!&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up-your-site&quot;&gt;Setting Up Your Site&lt;/h2&gt;
+
+&lt;p&gt;I won’t go into details here because good guides can be easily found online, but I’ll link the pages I found most useful. You’ll likely want to choose a Jekyll theme before you get started - I found the biggest collection of free ones on &lt;a href=&quot;https://jekyll-themes.com/free/&quot;&gt;jekyll-themes.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;steps&quot;&gt;Steps&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Installation link for Jekyll on Windows via &lt;a href=&quot;https://jekyllrb.com/docs/installation/windows/&quot;&gt;RubyInstaller&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.to/azukacchi/setting-up-github-pages-site-with-jekyll-tutorial-1l60&quot;&gt;Guide&lt;/a&gt; I used to run Jekyll locally. I did run into some issues with the guide:
+    &lt;ul&gt;
+      &lt;li&gt;Silly problem that cost me some time, but when typing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll new&lt;/code&gt;, you &lt;a href=&quot;https://github.com/jekyll/jekyll-help/issues/175&quot;&gt;also need to make a folder to put it in&lt;/a&gt;, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll new blog&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Fixed a problem I ran into when trying to run on localhost: &lt;a href=&quot;https://stackoverflow.com/questions/65989040/bundle-exec-jekyll-serve-cannot-load-such-file&quot;&gt;Stack Overflow post&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;When running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle upgrade&lt;/code&gt; again, I ran an issue where the “bundler could not find compatible versions for gem” and this fixed it: &lt;a href=&quot;https://stackoverflow.com/questions/7144846/bundler-could-not-find-compatible-versions-for-gem&quot;&gt;Stack Overflow post&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Don’t remember exactly which of these guides helped me use a custom domain on GitHub Pages (i.e. &lt;a href=&quot;https://ebristow.com&quot;&gt;https://ebristow.com&lt;/a&gt; not &lt;a href=&quot;https://erin-bristow.github.io&quot;&gt;https://erin-bristow.github.io&lt;/a&gt;), but think it was one of these: &lt;a href=&quot;https://hossainkhan.medium.com/using-custom-domain-for-github-pages-86b303d3918a&quot;&gt;Medium link&lt;/a&gt; or &lt;a href=&quot;https://www.freecodecamp.org/news/hosting-custom-domain-on-github-pages-8c598248d2bc/&quot;&gt;freeCodeCamp link&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Deploy with GitHub Actions (see Custom Plugins section). Troubleshooting this was one of the more difficult things I had to do.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;pre-requisite-knowledge&quot;&gt;Pre-Requisite Knowledge&lt;/h3&gt;
+
+&lt;p&gt;You’ll need familiarity with Git to successfully create a site on GitHub Pages. Knowing how to pull, push, and commit should be enough, but understanding how branches work is also useful. Commands for viewing all branches (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -a&lt;/code&gt;), switching to another branch (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout &amp;lt;branch&amp;gt;&lt;/code&gt;), and deleting a branch locally (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -d &amp;lt;branch&amp;gt;&lt;/code&gt;) may be needed.&lt;/p&gt;
+
+&lt;p&gt;To write posts for your site, you’ll want to learn &lt;a href=&quot;https://www.markdownguide.org/basic-syntax/&quot;&gt;Markdown&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;other-notes&quot;&gt;Other Notes&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post2jekyllplugins/running-locally.PNG&quot; alt=&quot;Showing the command line when running locally&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Deploying your Jekyll site locally within a command line:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;If you add a new gem (like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem &quot;jekyll-target-blank&lt;/code&gt;) to the Gemfile you’ll need to do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; to fetch the new gem&lt;/li&gt;
+  &lt;li&gt;When you’ve made changes to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;, you’ll need to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; again to re-build your site&lt;/li&gt;
+  &lt;li&gt;If you make changes to a Markdown blog post when running the site locally, you don’t need to re-build your site. Just save the markdown file and refresh the locally running site within the browser. In the command line above, see how this blog post “regenerates” when I refresh the browser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For editing and configuring your site, I recommend referencing the &lt;a href=&quot;https://jekyllrb.com/docs/configuration/&quot;&gt;Jekyll Configuration Docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;custom-plugins&quot;&gt;Custom Plugins&lt;/h2&gt;
+&lt;p&gt;I wanted to use custom plugins (notably, &lt;a href=&quot;https://github.com/keithmifsud/jekyll-target-blank&quot;&gt;jekyll-target-blank&lt;/a&gt;), but GitHub Pages doesn’t allow custom plugins by default, citing security concerns.&lt;/p&gt;
+
+&lt;p&gt;For more control over your site, including the use of custom plugins, you can deploy your Jekyll site to GitHub Pages with &lt;a href=&quot;https://jekyllrb.com/docs/continuous-integration/github-actions/&quot;&gt;GitHub Actions&lt;/a&gt;. Below are a few issues I ran into when following the linked Jekyll documentation for GitHub Actions. Hopefully this can help you with troubleshooting your own site.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;After the gh-pages branch is created, you must &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/8360#issuecomment-683134170&quot;&gt;switch to the gh-pages branch&lt;/a&gt; in the settings for your GitHub Pages repository.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/post2jekyllplugins/point1.PNG&quot; alt=&quot;Screenshot of https://github.com/forestryio/jekyll-menus/issues/19#issuecomment-683131856&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages.yml&lt;/code&gt;, &lt;a href=&quot;https://github.com/jekyllt/jasper2/issues/122&quot;&gt;you need to include&lt;/a&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;target_branch: gh-pages&lt;/code&gt; but that’s the only line I had to change in the documentation’s provided &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages.yml&lt;/code&gt; file.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/post2jekyllplugins/point2.PNG&quot; alt=&quot;Screenshot of https://github.com/jekyllt/jasper2/issues/122&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;There can be issues with custom domains. The CNAME record will not be automatically placed in the new gh-pages branch, and you cannot manually create the CNAME record file in the gh-pages branch because it will be overwritten every time your site is rebuilt. In your Jekyll &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.xml&lt;/code&gt; file you need to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include: CNAME&lt;/code&gt; to &lt;a href=&quot;https://github.com/criptowiki/criptowiki/issues/15#issuecomment-886890153&quot;&gt;force Jekyll to include that record&lt;/a&gt; in the gh-pages branch.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/post2jekyllplugins/point3.PNG&quot; alt=&quot;Screenshot of https://github.com/criptowiki/criptowiki/issues/15#issuecomment-886890153&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A final note: Even though GitHub pages is now serving your site off of the gh-pages branch and not master, you still need to be pushing to your master branch. When you push to your master branch, GitHub Actions will automatically build the site in the gh-pages branch. Do not edit the gh-pages branch directly because your changes will not persist when your site is rebuilt.&lt;/p&gt;</content><author><name></name></author><category term="Jekyll" /><summary type="html">This writeup will cover setting up a Jekyll site in GitHub Pages and then (optional!) deploying it with GitHub Actions so you can use custom plugins.</summary></entry><entry><title type="html">DEF CON 29 - Recon Village CTF Writeup</title><link href="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29" rel="alternate" type="text/html" title="DEF CON 29 - Recon Village CTF Writeup" /><published>2021-09-29T06:22:01+00:00</published><updated>2021-09-29T06:22:01+00:00</updated><id>https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29</id><content type="html" xml:base="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29">&lt;p&gt;On August 6th and 7th, I had the pleasure of participating in DEF CON 29’s &lt;a href=&quot;https://www.reconvillage.org/index.html&quot;&gt;Recon Village&lt;/a&gt; Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/8me.PNG&quot; alt=&quot;Team Trojan's score breakdown&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The challenges were difficult, with many still unsolved at the end of the two-day competition. Congrats to teams &lt;strong&gt;unremarkable&lt;/strong&gt;, &lt;strong&gt;QultOftheQuantumQow&lt;/strong&gt;, and &lt;strong&gt;pinja&lt;/strong&gt; for being the top 3 teams!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/Top10Teams.png&quot; alt=&quot;Top 10 teams score plot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This informal writeup covers solutions for Challenge 14, Challenge 15, and Challenge 16. Though I did not solve Challenge 17, I made some progress and it was still unsolved by the end of the competition so I am including a few notes on it too.&lt;/p&gt;
+
+&lt;h2 id=&quot;challenge-14&quot;&gt;Challenge 14&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;200 points, 31 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: We lost our contact with Mr. Sanjeev Shah Tolia. We made a website for him but lost his registered street address. Can you find it for us?&lt;/p&gt;
+
+&lt;p&gt;This challenge was amusing because the first address I discovered through a Google search seemed so perfect that I fruitlessly attempted to enter it for at least ten minutes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/honeypot.PNG&quot; alt=&quot;Sanjeev Shah Tolia incorrect address: Devonshire House 582 Honeypot Lane, Stanmore&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;582 &lt;strong&gt;Honeypot&lt;/strong&gt; Lane! Of course, seeing an address with a computer security term in it made me think I’d struck gold. But a &lt;a href=&quot;https://en.wikipedia.org/wiki/Honeypot_(computing)&quot;&gt;honeypot&lt;/a&gt; is a trap intended to lure and trick attackers - and in this case, I was the one being tricked! Assuming I am correct, this was a clever and funny addition by the developers of this CTF.&lt;/p&gt;
+
+&lt;p&gt;After trying another Google search string or two, I found a plausible (albeit less exciting) address that was the correct answer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/7London.PNG&quot; alt=&quot;The correct address - 7 London Road&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;flag:{7 London Road}&lt;/p&gt;
+
+&lt;h2 id=&quot;challenge-15&quot;&gt;Challenge 15&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;200 points, 20 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: We were provided with the below image named Recruited.png&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/Recruited.png&quot; alt=&quot;Picture of Eva Hesington's Company ID with a QR Code&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Uploading the QR code to &lt;a href=&quot;https://webqr.com&quot;&gt;webqr.com&lt;/a&gt; displayed this electronic business card (vCard):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BEGIN:VCARD VERSION:3.0 N:Hesington;Eva;;; FN:Eva Hesington 
+ORG:CryptoRama EMAIL;type=INTERNET;type=WORK;type=pref:eva@cryptorama.xyz
+URL;type=WORK;type=pref:https://eva.cryptorama.xyz
+TEL;type=CELL;type=VOICE;type=pref:+19876543210 END:VCARD
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Eva Hesington’s website, &lt;strong&gt;https://eva.cryptorama.xyz&lt;/strong&gt;, was a simple single-page UIdeck resume site. There was a clickable button titled &lt;strong&gt;Download Resume&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/downloadResume.PNG&quot; alt=&quot;About me section with the Download Resume button&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When I initially loaded the resume, I noticed that there was a code that flashed on the left side of the document but quickly disappeared. Starting a video before refreshing the page allowed me to capture this video frame displaying the flag:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/resume_flag.PNG&quot; alt=&quot;About me section with the Download Resume button&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;flag:{h!$st0r4_i$_b@D}&lt;/p&gt;
+
+&lt;h2 id=&quot;challenge-16&quot;&gt;Challenge 16&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;427 points, 2 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: Unfortunately failed to archive the description, but I know it included the hint “this challenge will not be a walk in the park”.&lt;/p&gt;
+
+&lt;p&gt;And when I read that this challenge would not be a walk in the park, I remembered something from Eva Hesington’s about me section - she likes going on walks with her husband to a nearby park.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/bio.PNG&quot; alt=&quot;About me section, she likes to go on walks in the park&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There was also a map at the bottom of the webpage.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/peartree.PNG&quot; alt=&quot;Google map with Peartree Apartments pinned&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I thought that the most logical location for the flag would be a Google or Yelp review left by Eva Hesington for a park within walking distance of Peartree Apartments. I started searching reviews for “Eva” in case she used a different last name outside of work. After trying many parks’ review pages including Washington Park, Murphy Park, Cannery Park, Columbia Park, and Ponderosa Park I decided to take a break on this challenge.&lt;/p&gt;
+
+&lt;p&gt;Next, I decided to comb through the website’s HTML using &lt;a href=&quot;https://computer.howstuffworks.com/web-page2.htm&quot;&gt;page source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/pageSource.PNG&quot; alt=&quot;Page source showing that Eva Hesington's husband's name was hidden&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Look closely at the HTML for this section of the webpage. We saw earlier that Eva Hesington’s relationship status was “Married”. The page source above revealed that her husband’s name, John Graham, was set to “display: none” so it was hidden from view on her website. Instead of saying “Relationship: Married”, the page actually said “Relationship: Married to John Graham”.&lt;/p&gt;
+
+&lt;p&gt;On the Yelp page for &lt;a href=&quot;https://www.yelp.com/biz/washington-park-sunnyvale&quot;&gt;Washington Park&lt;/a&gt;, reviewer John G. left a flag!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/WashingtonPark.PNG&quot; alt=&quot;John Graham's Washington Park review&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;flag:{d0nT_b3_fr!EndL4_w!tH_stR@nGeRs}&lt;/p&gt;
+
+&lt;p&gt;Note: It might seem unrealistic for extra information to be hidden in a webpage. After all, secure databases exist for a reason! But look no further than this ethical hacker’s discovery of a former &lt;a href=&quot;https://www.theguardian.com/australia-news/2020/sep/16/former-australian-pm-tony-abbotts-passport-details-and-phone-number-obtained-by-hacker&quot;&gt;Australian Prime Minister’s passport number and phone number&lt;/a&gt; stored on an airline’s website. Yikes.&lt;/p&gt;
+
+&lt;h2 id=&quot;challenge-17-unsolved&quot;&gt;Challenge 17 (unsolved)&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;~500 points, 0 solves&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenge Description&lt;/strong&gt;: The third and final part of the Eva Hesington-related problems (Challenges 15, 16, and 17). Failed to archive this one as well, but I remember the description being unhelpful. I found the filepath clue below by enumerating every filepath on the site, not through any hint here.&lt;/p&gt;
+
+&lt;p&gt;Opening one of the website’s images in a new tab and looking at its filepath gave a hint.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/evaGitlabHint.PNG&quot; alt=&quot;Image from site with AWS filepath&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;/&lt;strong&gt;find/me/on/gitlab&lt;/strong&gt;/about-2.jpg&lt;/p&gt;
+
+&lt;p&gt;There was an email address listed under contact information on Eva Hesington’s site: eva.hesington.1213@gmail.com. Username &lt;strong&gt;eva.hesington.1213&lt;/strong&gt; returned a registered GitLab user.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/gitlabuser.PNG&quot; alt=&quot;GitLab search showing Eva's profile under the username eva.hesington.1213&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There was a repository called My Personal Website. Cloning the repository and opening index.html revealed a website almost identical to the eva.cryptorama.xyz site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/repo.PNG&quot; alt=&quot;Screenshot showing the repository in GitLab&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The file account.txt in the repository contained an &lt;a href=&quot;https://console.aws.amazon.com/console/home?nc2=h_mo&quot;&gt;AWS&lt;/a&gt; Account ID and an EC2 Instance type. But I could not find nor guess the password, so I became stuck at this point.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/account.PNG&quot; alt=&quot;showing contents of account.txt in the repository, ID 727048636561 and EC2 Instance t3.medium&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I also tried using the &lt;a href=&quot;https://www.diffchecker.com/&quot;&gt;Diff Checker website&lt;/a&gt; to examine the difference in the HTML for eva.cryptorama.xyz and index.html in the GitLab repository. There were a few small changes - the new index.html page had &lt;strong&gt;evahesington@gmail.com&lt;/strong&gt; in place of &lt;strong&gt;eva.hesington.1213@gmail.com&lt;/strong&gt;. Unfortunately, this discovery did not help further my progress.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/post1ctf/contact.PNG&quot; alt=&quot;Eva Hesington's contact infomation for the index.html file&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Note - I did score 827 points (200, 200, and 427), but I “bought” a hint using 50 points bringing my total down to 777 (and didn’t even end up making any notable progress on that challenge, oh well)&lt;/p&gt;
+
+&lt;p&gt;Thanks for checking out my writeup! And thanks to those at Recon Village who put together this CTF!&lt;/p&gt;</content><author><name></name></author><category term="OSINT" /><category term="CTF" /><summary type="html">On August 6th and 7th, I had the pleasure of participating in DEF CON 29’s Recon Village Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually.</summary></entry></feed>

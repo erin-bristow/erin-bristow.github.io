@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>DEF CON 30 - Recon Village CTF Writeup</title>
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>DEF CON 30 - Recon Village CTF Writeup | Home</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="DEF CON 30 - Recon Village CTF Writeup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend Jeffrey and I decided to settle down in the Recon Village and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams." />
+<meta property="og:description" content="After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend Jeffrey and I decided to settle down in the Recon Village and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams." />
+<link rel="canonical" href="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30" />
+<meta property="og:url" content="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30" />
+<meta property="og:site_name" content="Home" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-18T19:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DEF CON 30 - Recon Village CTF Writeup" />
+<script type="application/ld+json">
+{"description":"After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend Jeffrey and I decided to settle down in the Recon Village and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams.","url":"https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30","@type":"BlogPosting","headline":"DEF CON 30 - Recon Village CTF Writeup","dateModified":"2022-08-18T19:00:00+00:00","datePublished":"2022-08-18T19:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ebristow.com/blog/Recon-Village-CTF-DEFCON-30"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<style>
+
+   header {
+    padding: 70px 0;
+   }
+
+
+
+</style>
+<script async defer data-domain="ebristow.com" src="https://plausible.io/js/plausible.js"></script></head>
+<body> 
+  <header class="texture-black">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li>Home</li></a>
+		
+	</ul>
+</div></div>
+<div class="container">
+	<h1>DEF CON 30 - Recon Village CTF Writeup</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Aug 18, 2022
+	</div>
+	<ul class="post-tags">
+<li>OSINT</li>
+<li>CTF</li>
+</ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>After spending Friday of our first (!!) in-person DEF CON wandering around, on Saturday my friend <a href="https://github.com/j-hertzog" target="_blank" rel="noopener noreferrer">Jeffrey</a> and I decided to settle down in the <a href="https://www.reconvillage.org/index.html" target="_blank" rel="noopener noreferrer">Recon Village</a> and work on their CTF for a few hours. Team Trojan tied for 4th out of 59 teams.</p>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+  <li><a href="#defcon">DEF CON!</a></li>
+  <li><a href="#writeup-intro">Writeup Intro</a></li>
+  <li>
+<a href="#challenges">Challenges</a>
+    <ul>
+      <li><a href="#challenge2">Challenge 2 - Tax Fraud LTD.</a></li>
+      <li><a href="#challenge3">Challenge 3 - Email spam!</a></li>
+      <li><a href="#challenge4">Challenge 4 - A person named Phonenumber</a></li>
+      <li><a href="#challenge5">Challenge 5 - Pool Party, Pt. 1</a></li>
+      <li><a href="#challenge6">Challenge 6 - Pool Party, Pt. 2</a></li>
+      <li><a href="#challenge7">Challenge 7 - Callum, Pt. 1</a></li>
+      <li><a href="#challenge8">Challenge 8 - Callum, Pt. 2</a></li>
+      <li><a href="#challenge11">Challenge 11 - Eva Hesington</a></li>
+      <li><a href="#challenge16">Challenge 16 - Find the volcano!</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ol>
+
+<h2 id="def-con-">DEF CON! <a name="defcon"></a>
+</h2>
+<p>Feel free to skip straight to the <a href="#writeup-intro">writeup intro</a>, but I wanted to write a little about my experience at the conference too. 
+At long last, an in-person DEF CON that I could attend! Had the best time with old friends and new friends. :)</p>
+
+<p>I went with two friends from USC and we stayed at Tuscany Suites &amp; Casino, about a ten minute walk from the conference.</p>
+
+<p style="text-align: center;" align="center"><img src="/assets/post3ctf/friends.jpg" alt="Jeffrey, Diba, and me"></p>
+<p align="center"><em>Jeffrey, Diba, and me - very tired on the last day of the conference :,)</em></p>
+
+<p>We left the hotel at 7am on Thursday so we could buy our badge, and after foolishly following a group of equally-confused folks, found our way to Caesars Palace… which is apparently different than Caesars Forum! At around 8am we finally found the line and got our tickets in an hour and a half and then spent three hours in line to buy t-shirts.</p>
+
+<p>LINECON was a great experience, though. The conference goons frequently told all first timers to raise their hands, so lots of people talked to us and gave us free stuff and advice. There were several games going in line, too. Pass the baby was a particularly goofy one in which two pairs of chopsticks were used to transfer a plastic baby from one person to another without dropping it.</p>
+
+<p style="text-align: center;" align="center"><img src="/assets/post3ctf/pass-the-baby.jpg" alt="Plastic baby between chopsticks"></p>
+<p align="center"><em>Pass the baby!</em></p>
+
+<p>Hacker jeopardy on Friday night was one of the highlights of the conference. Never in my life have I seen more <a href="https://twitter.com/c4i/status/1559633675117121537" target="_blank" rel="noopener noreferrer">beach balls</a>. At the beginning, we had to wait a few minutes for the Caesars Forum employees to bring the beer cart… because in addition to points for answering questions correctly, your team also gets points for each bottle of beer you drink??</p>
+
+<p style="text-align:center;" align="center"><img src="/assets/post3ctf/hacker-jeopardy.gif" alt="a beach ball flies by a screen that says 'The people responsible have been sacked. Everyone please... SIT THE FUCK DOWN!'"></p>
+<p align="center"><em>Waiting for the beer people!</em></p>
+
+<p>Some of the categories included: <em>Are you smarter than a CSSLP?</em>, <em>pandemodem</em>, <em>little green padlocks</em>, and <em>NFT: No Fucking Thanks</em>. Many questions involved pieces of <a href="https://en.wikipedia.org/wiki/Hacker_culture" target="_blank" rel="noopener noreferrer">hacker culture</a> and DEF CON history while others asked networking questions like which service uses which port (<a href="https://twitter.com/HackerJeopardy/status/1563780446445621248" target="_blank" rel="noopener noreferrer">TELNET</a>, anyone?).</p>
+
+<p>Other highlights:</p>
+<ul>
+  <li>
+<a href="https://github.com/Kybr-git/DC30-Badge-Challenge-Writeup" target="_blank" rel="noopener noreferrer">Calling YИИEႱ</a> as part of the badge challenge</li>
+  <li>Meeting some awesome hackers at the Double Down Saloon on the last night of the conference</li>
+  <li>w00w00’s rooftop party!</li>
+  <li>Was offered to join the Church of WiFi but the <a href="https://twitter.com/cydefe/status/1528586303264149505" target="_blank" rel="noopener noreferrer">initiation process</a> seemed a little intimidating… maybe next year hehe</li>
+  <li>googly eyes… <a href="https://twitter.com/DFIRmadness/status/1424215666580623362" target="_blank" rel="noopener noreferrer">everywhere</a>…</li>
+  <li>the Recon Village CTF!!</li>
+</ul>
+
+<h2 id="writeup-intro-">Writeup Intro <a name="writeup-intro"></a>
+</h2>
+
+<p>Last year’s challenges were more difficult. Many went unsolved, and Team Trojan secured 8th place with only three solves. This year, we solved nine challenges and tied for 4th! We had a great time competing, so a big thanks to the organizers of the CTF.</p>
+
+<p><img src="/assets/post3ctf/top5.PNG" alt="Scoreboard"></p>
+<p align="center"><em>Graph showing the progress of the Top 10 Teams</em></p>
+
+<p>The CTF began on Friday and we started on Saturday so we had a bit of catching up to do (in the above graph, we’re the purple line that started second-to-last!).</p>
+
+<p><img src="/assets/post3ctf/challengesSolved.png" alt="Challenges we solved and the time when each challenge was solved"></p>
+<p align="center"><em>Our solved challenges with timestamps</em></p>
+
+<p>Notes:</p>
+<ol>
+  <li>This CTF included profiles and online information for real people. Therefore, some information has been redacted in this writeup.</li>
+  <li>The number of solves for each challenge is the number when we first solved that challenge. We did start late, so there weren’t too many solves after us.</li>
+</ol>
+
+<h2 id="challenges-">Challenges <a name="challenges"></a>
+</h2>
+
+<h3 id="challenge-2---tax-fraud-ltd-">Challenge 2 - Tax Fraud LTD. <a name="challenge2"></a>
+</h3>
+<p><em>100 points, ~45 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Cherry Software LTD is associated by address with a questionable business registered on August 4th. On what date did the company’s only director resign? [This is paraphrased - lost the exact description]</p>
+
+<p>A Google search for <code class="language-plaintext highlighter-rouge">cherry software ltd</code> returns a profile on the <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer">UK’s Companies House website</a> with a registered office address of 4 St. Johns Crescent, Bishop Monkton, Harrogate, North Yorkshire, HG3 3QZ.</p>
+
+<p><img src="/assets/post3ctf/challenge2cherry.PNG" alt="Cherry Software Limited, 4 St. Johns Crescent, Bishop Monkton, Harrogate, North Yorkshire, HG3 3QZ"></p>
+
+<p>We were very stuck on the “associated by address” hint in the challenge description, assuming that meant the questionable business had the same or similar address as Cherry Software LTD.</p>
+
+<p>By searching for other companies in Harrogate, we found the company, Tax Fraud LTD:</p>
+
+<p><img src="/assets/post3ctf/challenge2sketchy.PNG" alt="Tax Fraud LTD result on Companies House website"></p>
+
+<p>The company’s only director resigned on 11 August 2022.</p>
+
+<p><img src="/assets/post3ctf/challenge2director.PNG" alt="Director Dylan Sawyer resigned on 11 August 2022"></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{11/08/2022}</code></p>
+
+<h3 id="challenge-3---email-spam-">Challenge 3 - Email spam! <a name="challenge3"></a>
+</h3>
+
+<p><em>100 points, &gt;=27 solves</em></p>
+
+<p><strong>Challenge Description</strong>: On 11 August, what was the primary email domain from which spam was reported as coming from 185.129.62.62 and 107.189.28.253 (two bot IPs)?</p>
+
+<p>Searching <a href="https://www.stopforumspam.com/" target="_blank" rel="noopener noreferrer">stopforumspam.com</a> for the IP address 185.129.62.62 returned several spam reports on August 11 for emails under a certain domain.</p>
+
+<p><img src="/assets/post3ctf/challenge3stopforumspam.PNG" alt="Site results for the search for the IP 185.129.62.62."></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{hiroyuki4010.yoshito33.inwebmail.fun}</code></p>
+
+<h3 id="challenge-4---a-person-named-phonenumber-">Challenge 4 - A person named Phonenumber <a name="challenge4"></a>
+</h3>
+<p><em>100 points, &gt;=35 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Wanting to remain anonymous online, discreetly named ‘Phonenumber’ from Costa Rica has a friend who works for Facebook. When did his friend get married? (MM/DD/YYYY)</p>
+
+<p>A Google search for <code class="language-plaintext highlighter-rouge">"phonenumber" costa rica facebook</code> returns a <a href="https://www.facebook.com/phonenumber.phonenumber.39" target="_blank" rel="noopener noreferrer">Facebook profile</a>.</p>
+
+<p><img src="/assets/post3ctf/challenge4facebookprofile.PNG" alt="Phonenumber's Facebook profile"></p>
+
+<p>Searching through Phonenumber’s friends leads to Dany, who works at Facebook.</p>
+
+<p><img src="/assets/post3ctf/challenge4friendcensored.png" alt="Phonenumber's friends"></p>
+
+<p>Going to Dany’s profile shows their marriage date.</p>
+
+<p><img src="/assets/post3ctf/challenge4friendmarriagecensored.png" alt="Dany's profile w/ marriage date"></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{11/03/2007}</code></p>
+
+<h3 id="challenge-5---pool-party-pt-1-">Challenge 5 - Pool Party, Pt. 1 <a name="challenge5"></a>
+</h3>
+<p><em>200 points, &gt;=26 solves</em></p>
+
+<p><strong>Challenge Description</strong>: You’re investigating a missing person who went missing following a party in 2019. While working through case notes you’ve come across the following: NTIyMyBTb3V0aCBCcmFlc3dvb2QgQm91bGV2YXJkLCBIb3VzdG9u.<br>
+What date was the pool party?</p>
+
+<p><a href="https://www.base64decode.org/" target="_blank" rel="noopener noreferrer">Decoding</a> the base64 encoded string gives an address in Houston.</p>
+
+<p>A Google search for that address points to a pastebin dump at <a href="https://pastebin.com/BNwRBAX4" target="_blank" rel="noopener noreferrer">https://pastebin.com/BNwRBAX4</a> containing an email about a party.</p>
+
+<p><img src="/assets/post3ctf/challenge5pastebin.PNG" alt="Thank you for your RSVP to our mf pool party THIS Saturday."></p>
+
+<p>The email headers in the pastebin dump show that it was sent on 18 April 2019, so the email’s reference to “THIS Saturday” would be 20 April 2019.</p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{04/20/2019}</code></p>
+
+<h3 id="challenge-6---pool-party-pt-2-">Challenge 6 - Pool Party, Pt. 2 <a name="challenge6"></a>
+</h3>
+<p><em>200 points, &gt;=10 solves</em></p>
+
+<p><strong>Challenge Description</strong>: There are two hosts of the party, one is Vanessa, what is the last one of the other host?</p>
+
+<p>The email says that anyone “on Meghana’s or Vanessa’s invite list can come in for free.” From this, we assumed that Meghana was the other host.</p>
+
+<p>The pastebin dump included the entire email including headers and the “from” field, so we had about 80 full names and email addresses. Searching Facebook for a few of these names returned one that was friends with Meghana.</p>
+
+<p><img src="/assets/post3ctf/challenge6profilefriendcensored.png" alt="a Facebook profile, with faces/names pixelated"></p>
+
+<p><img src="/assets/post3ctf/challenge6profilecensored.png" alt="a Facebook profile, with faces/names pixelated"></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{lastname}</code></p>
+
+<h3 id="challenge-7---callum-pt-1-">Challenge 7 - Callum, Pt. 1 <a name="challenge7"></a>
+</h3>
+<p><em>100 points, &gt;=14 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Callum lives in Scarborough, Toronto and works with kids. What’s his wife’s maiden name?</p>
+
+<p>Googling <code class="language-plaintext highlighter-rouge">callum scarborough toronto</code> led us to a LinkedIn profile of someone named Callum that got a diploma in childcare.</p>
+
+<p><img src="/assets/post3ctf/challenge7linkedincensored.png" alt="Callum's LinkedIn profile"></p>
+
+<p>Searching Facebook for his full name returned a profile with a “Married to” section linked to another Facebook profile (unfortunately with the same last name).</p>
+
+<p><img src="/assets/post3ctf/challenge7facebookhusbandcensored.png" alt="Callum's Facebook profile"></p>
+
+<p>But when Ashley first created a Facebook account, it was likely under her maiden name. As a result, that original name was visible in the URL.</p>
+
+<p><img src="/assets/post3ctf/challenge7facebookurlcensored.png" alt="Ashley's Facebook profile"></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{lastname}</code></p>
+
+<h3 id="challenge-8---callum-pt-2-">Challenge 8 - Callum, Pt. 2 <a name="challenge8"></a>
+</h3>
+<p><em>100 points, &gt;=10 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Callum’s password has been breached in connection with his primary email. What is it?</p>
+
+<p>A Google search for <code class="language-plaintext highlighter-rouge">site:pastebin.com callum lastname</code> returns a dump containing an email password combo that belongs to Callum.</p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{password}</code></p>
+
+<h3 id="challenge-11---eva-hesington-">Challenge 11 - Eva Hesington <a name="challenge11"></a>
+</h3>
+<p><em>200 points, &gt;=15 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Hi I’m Eva Hesington. Remember me from last year. I am the founder of Cryptorama. Thanks for your support we have been able to scale the business a lot. I cannot thank the open source community enough. Using Open source tools and platforms, our business has grown and our tech department is now running strong. We could not have done it without these Open Source tools and community. You can visit our website to find out more.</p>
+
+<p>I do indeed remember Eva from <a href="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29">last year’s CTF</a>! Eva appears to be a fictional person created for this CTF, so full detailed are being included for this challenge.</p>
+
+<p>With Firefox Developer tools, we found <code class="language-plaintext highlighter-rouge">dist/js/main.min.js</code> which had a comment reminding someone to remove a token before the code was pushed to production.</p>
+
+<p><img src="/assets/post3ctf/challenge11javascript.PNG" alt="JavaScript with commented token"></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{d0_N0t_cOd3_&amp;_c0mM3nt}</code></p>
+
+<h3 id="challenge-16---find-the-volcano-">Challenge 16 - Find the volcano! <a name="challenge16"></a>
+</h3>
+<p><em>400 points, &gt;=17 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Can you locate this field on the outskirts of London in the image attached below. Once you do, what date did Doug leave a review for this place? Copy the date from the review as is in the flag format.</p>
+
+<p><img src="/assets/post3ctf/c16_final.jpg" alt=""></p>
+<p align="center"><em>Attached image with filename 'c16_final.jpg'</em></p>
+
+<p>There were too many driving ranges in and around London to bother manually searching, so we identified a feature in the picture that stood out.</p>
+
+<p style="text-align:center;"><img src="/assets/post3ctf/challenge16volcano.jpg" alt="Mini golf course with volcano"></p>
+
+<p>A mini golf course with… perhaps a volcano?</p>
+
+<p>Sure enough, performing a Google search for <code class="language-plaintext highlighter-rouge">london mini golf with volcano</code> returned <a href="https://hounslowgolfpark.com/" target="_blank" rel="noopener noreferrer">this website</a> for the Hounslow Golf Park. Notably, the “park” logo poster on the driving range matches the logo on the website.</p>
+
+<p><img src="/assets/post3ctf/challenge16website.PNG" alt="Screenshot of the Hounslow Golf Park website"></p>
+
+<p>There is a Google review left by Doug on July 16 featured on the Hounslow website.</p>
+
+<p style="text-align:center;"><img src="/assets/post3ctf/challenge16dougcensored.png" alt="Screenshot of the Hounslow Golf Park website"></p>
+
+<p><code class="language-plaintext highlighter-rouge">flag:{16/07/2022}</code></p>
+
+<h2 id="conclusion-">Conclusion <a name="conclusion"></a>
+</h2>
+
+<p>Thanks for checking out the writeup, and thanks to those at Recon Village who put together this CTF.</p>
+
+<p><a href="https://andrew.cloud/blog/dc30-writeup/" target="_blank" rel="noopener noreferrer">Here’s the writeup</a> from the winning team if you’d like to look at additional solves!</p>
+
+      </div>
+
+        <!-- Configure Disqus -->
+</div>
+  </main></body>
+</html>

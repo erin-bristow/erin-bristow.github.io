@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>DEF CON 29 - Recon Village CTF Writeup</title>
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>DEF CON 29 - Recon Village CTF Writeup | Home</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="DEF CON 29 - Recon Village CTF Writeup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="On August 6th and 7th, I had the pleasure of participating in DEF CON 29’s Recon Village Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually." />
+<meta property="og:description" content="On August 6th and 7th, I had the pleasure of participating in DEF CON 29’s Recon Village Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually." />
+<link rel="canonical" href="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29" />
+<meta property="og:url" content="https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29" />
+<meta property="og:site_name" content="Home" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-29T06:22:01+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DEF CON 29 - Recon Village CTF Writeup" />
+<script type="application/ld+json">
+{"description":"On August 6th and 7th, I had the pleasure of participating in DEF CON 29’s Recon Village Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually.","url":"https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29","@type":"BlogPosting","headline":"DEF CON 29 - Recon Village CTF Writeup","dateModified":"2021-09-29T06:22:01+00:00","datePublished":"2021-09-29T06:22:01+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ebristow.com/blog/Recon-Village-CTF-DEFCON-29"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<style>
+
+   header {
+    padding: 70px 0;
+   }
+
+
+
+</style>
+<script async defer data-domain="ebristow.com" src="https://plausible.io/js/plausible.js"></script></head>
+<body> 
+  <header class="texture-black">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li>Home</li></a>
+		
+	</ul>
+</div></div>
+<div class="container">
+	<h1>DEF CON 29 - Recon Village CTF Writeup</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Sep 29, 2021
+	</div>
+	<ul class="post-tags">
+<li>OSINT</li>
+<li>CTF</li>
+</ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>On August 6th and 7th, I had the pleasure of participating in DEF CON 29’s <a href="https://www.reconvillage.org/index.html" target="_blank" rel="noopener noreferrer">Recon Village</a> Capture the Flag competition. It was my first time competing, and it was a lot of fun! Team Trojan placed 8th, and I placed 5th out of 240 registered participants individually.</p>
+
+<p><img src="/assets/post1ctf/8me.PNG" alt="Team Trojan's score breakdown"></p>
+
+<p>The challenges were difficult, with many still unsolved at the end of the two-day competition. Congrats to teams <strong>unremarkable</strong>, <strong>QultOftheQuantumQow</strong>, and <strong>pinja</strong> for being the top 3 teams!</p>
+
+<p><img src="/assets/post1ctf/Top10Teams.png" alt="Top 10 teams score plot"></p>
+
+<p>This informal writeup covers solutions for Challenge 14, Challenge 15, and Challenge 16. Though I did not solve Challenge 17, I made some progress and it was still unsolved by the end of the competition so I am including a few notes on it too.</p>
+
+<h2 id="challenge-14">Challenge 14</h2>
+<p><em>200 points, 31 solves</em></p>
+
+<p><strong>Challenge Description</strong>: We lost our contact with Mr. Sanjeev Shah Tolia. We made a website for him but lost his registered street address. Can you find it for us?</p>
+
+<p>This challenge was amusing because the first address I discovered through a Google search seemed so perfect that I fruitlessly attempted to enter it for at least ten minutes.</p>
+
+<p><img src="/assets/post1ctf/honeypot.PNG" alt="Sanjeev Shah Tolia incorrect address: Devonshire House 582 Honeypot Lane, Stanmore"></p>
+
+<p>582 <strong>Honeypot</strong> Lane! Of course, seeing an address with a computer security term in it made me think I’d struck gold. But a <a href="https://en.wikipedia.org/wiki/Honeypot_(computing)" target="_blank" rel="noopener noreferrer">honeypot</a> is a trap intended to lure and trick attackers - and in this case, I was the one being tricked! Assuming I am correct, this was a clever and funny addition by the developers of this CTF.</p>
+
+<p>After trying another Google search string or two, I found a plausible (albeit less exciting) address that was the correct answer.</p>
+
+<p><img src="/assets/post1ctf/7London.PNG" alt="The correct address - 7 London Road"></p>
+
+<p>flag:{7 London Road}</p>
+
+<h2 id="challenge-15">Challenge 15</h2>
+<p><em>200 points, 20 solves</em></p>
+
+<p><strong>Challenge Description</strong>: We were provided with the below image named Recruited.png</p>
+
+<p><img src="/assets/post1ctf/Recruited.png" alt="Picture of Eva Hesington's Company ID with a QR Code" height="300"></p>
+
+<p>Uploading the QR code to <a href="https://webqr.com" target="_blank" rel="noopener noreferrer">webqr.com</a> displayed this electronic business card (vCard):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BEGIN:VCARD VERSION:3.0 N:Hesington;Eva;;; FN:Eva Hesington 
+ORG:CryptoRama EMAIL;type=INTERNET;type=WORK;type=pref:eva@cryptorama.xyz
+URL;type=WORK;type=pref:https://eva.cryptorama.xyz
+TEL;type=CELL;type=VOICE;type=pref:+19876543210 END:VCARD
+</code></pre></div></div>
+
+<p>Eva Hesington’s website, <strong>https://eva.cryptorama.xyz</strong>, was a simple single-page UIdeck resume site. There was a clickable button titled <strong>Download Resume</strong>:</p>
+
+<p><img src="/assets/post1ctf/downloadResume.PNG" alt="About me section with the Download Resume button"></p>
+
+<p>When I initially loaded the resume, I noticed that there was a code that flashed on the left side of the document but quickly disappeared. Starting a video before refreshing the page allowed me to capture this video frame displaying the flag:</p>
+
+<p><img src="/assets/post1ctf/resume_flag.PNG" alt="About me section with the Download Resume button"></p>
+
+<p>flag:{h!$st0r4_i$_b@D}</p>
+
+<h2 id="challenge-16">Challenge 16</h2>
+<p><em>427 points, 2 solves</em></p>
+
+<p><strong>Challenge Description</strong>: Unfortunately failed to archive the description, but I know it included the hint “this challenge will not be a walk in the park”.</p>
+
+<p>And when I read that this challenge would not be a walk in the park, I remembered something from Eva Hesington’s about me section - she likes going on walks with her husband to a nearby park.</p>
+
+<p><img src="/assets/post1ctf/bio.PNG" alt="About me section, she likes to go on walks in the park"></p>
+
+<p>There was also a map at the bottom of the webpage.</p>
+
+<p><img src="/assets/post1ctf/peartree.PNG" alt="Google map with Peartree Apartments pinned"></p>
+
+<p>I thought that the most logical location for the flag would be a Google or Yelp review left by Eva Hesington for a park within walking distance of Peartree Apartments. I started searching reviews for “Eva” in case she used a different last name outside of work. After trying many parks’ review pages including Washington Park, Murphy Park, Cannery Park, Columbia Park, and Ponderosa Park I decided to take a break on this challenge.</p>
+
+<p>Next, I decided to comb through the website’s HTML using <a href="https://computer.howstuffworks.com/web-page2.htm" target="_blank" rel="noopener noreferrer">page source</a>.</p>
+
+<p><img src="/assets/post1ctf/pageSource.PNG" alt="Page source showing that Eva Hesington's husband's name was hidden"></p>
+
+<p>Look closely at the HTML for this section of the webpage. We saw earlier that Eva Hesington’s relationship status was “Married”. The page source above revealed that her husband’s name, John Graham, was set to “display: none” so it was hidden from view on her website. Instead of saying “Relationship: Married”, the page actually said “Relationship: Married to John Graham”.</p>
+
+<p>On the Yelp page for <a href="https://www.yelp.com/biz/washington-park-sunnyvale" target="_blank" rel="noopener noreferrer">Washington Park</a>, reviewer John G. left a flag!</p>
+
+<p><img src="/assets/post1ctf/WashingtonPark.PNG" alt="John Graham's Washington Park review"></p>
+
+<p>flag:{d0nT_b3_fr!EndL4_w!tH_stR@nGeRs}</p>
+
+<p>Note: It might seem unrealistic for extra information to be hidden in a webpage. After all, secure databases exist for a reason! But look no further than this ethical hacker’s discovery of a former <a href="https://www.theguardian.com/australia-news/2020/sep/16/former-australian-pm-tony-abbotts-passport-details-and-phone-number-obtained-by-hacker" target="_blank" rel="noopener noreferrer">Australian Prime Minister’s passport number and phone number</a> stored on an airline’s website. Yikes.</p>
+
+<h2 id="challenge-17-unsolved">Challenge 17 (unsolved)</h2>
+<p><em>~500 points, 0 solves</em></p>
+
+<p><strong>Challenge Description</strong>: The third and final part of the Eva Hesington-related problems (Challenges 15, 16, and 17). Failed to archive this one as well, but I remember the description being unhelpful. I found the filepath clue below by enumerating every filepath on the site, not through any hint here.</p>
+
+<p>Opening one of the website’s images in a new tab and looking at its filepath gave a hint.</p>
+
+<p><img src="/assets/post1ctf/evaGitlabHint.PNG" alt="Image from site with AWS filepath"></p>
+
+<p>/<strong>find/me/on/gitlab</strong>/about-2.jpg</p>
+
+<p>There was an email address listed under contact information on Eva Hesington’s site: eva.hesington.1213@gmail.com. Username <strong>eva.hesington.1213</strong> returned a registered GitLab user.</p>
+
+<p><img src="/assets/post1ctf/gitlabuser.PNG" alt="GitLab search showing Eva's profile under the username eva.hesington.1213"></p>
+
+<p>There was a repository called My Personal Website. Cloning the repository and opening index.html revealed a website almost identical to the eva.cryptorama.xyz site.</p>
+
+<p><img src="/assets/post1ctf/repo.PNG" alt="Screenshot showing the repository in GitLab"></p>
+
+<p>The file account.txt in the repository contained an <a href="https://console.aws.amazon.com/console/home?nc2=h_mo" target="_blank" rel="noopener noreferrer">AWS</a> Account ID and an EC2 Instance type. But I could not find nor guess the password, so I became stuck at this point.</p>
+
+<p><img src="/assets/post1ctf/account.PNG" alt="showing contents of account.txt in the repository, ID 727048636561 and EC2 Instance t3.medium"></p>
+
+<p>I also tried using the <a href="https://www.diffchecker.com/" target="_blank" rel="noopener noreferrer">Diff Checker website</a> to examine the difference in the HTML for eva.cryptorama.xyz and index.html in the GitLab repository. There were a few small changes - the new index.html page had <strong>evahesington@gmail.com</strong> in place of <strong>eva.hesington.1213@gmail.com</strong>. Unfortunately, this discovery did not help further my progress.</p>
+
+<p><img src="/assets/post1ctf/contact.PNG" alt="Eva Hesington's contact infomation for the index.html file"></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Note - I did score 827 points (200, 200, and 427), but I “bought” a hint using 50 points bringing my total down to 777 (and didn’t even end up making any notable progress on that challenge, oh well)</p>
+
+<p>Thanks for checking out my writeup! And thanks to those at Recon Village who put together this CTF!</p>
+
+      </div>
+
+        <!-- Configure Disqus -->
+</div>
+  </main></body>
+</html>
